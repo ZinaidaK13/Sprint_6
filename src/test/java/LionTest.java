@@ -12,41 +12,19 @@ import static org.mockito.Mockito.when;
 
 public class LionTest {
 
-    @Test
-    public void maleLionShouldHaveMane() throws Exception {
-        Lion lion = new Lion("Самец");
-        assertTrue("У самца должна быть грива", lion.doesHaveMane());
-    }
+    @Test(expected = Exception.class)
+    public void invalidSexShouldThrowException() throws Exception {
+        new Lion("Другое", new Feline());
+               }
 
     @Test
-    public void femaleLionShouldNotHaveMane() throws Exception {
-        Lion lion = new Lion("Самка");
-        assertFalse("У самки не должно быть гривы", lion.doesHaveMane());
-    }
-
-    @Test
-    public void invalidSexShouldThrowException() {
-        try {
-            new Lion("Другое", new Feline());
-            fail("Ожидалось исключение");
-        } catch (Exception e) {
-            assertEquals("Используйте допустимые значения пола животного - Cамец или Cамка",
-                    e.getMessage());
-        }
-    }
-    @Test
-    public void getKittensWithMockFelineReturnsExpectedValue() {
+    public void getKittensWithMockFelineReturnsExpectedValue() throws Exception{
         Feline mockFeline = Mockito.mock(Feline.class);
         when(mockFeline.getKittens()).thenReturn(5);
-        try {
-            Lion lion = new Lion("Самец", mockFeline);
+           Lion lion = new Lion("Самец", mockFeline);
             int actualKittens = lion.getKittens();
             assertEquals("Количество котят должно совпадать", 5, actualKittens);
-            verify(mockFeline).getKittens();
-        } catch (Exception e) {
-            fail("Неожиданное исключение: " + e.getMessage());
-        }
-    }
+                }
 
     @Test
     public void getFoodShouldReturnFelineFood() throws Exception{

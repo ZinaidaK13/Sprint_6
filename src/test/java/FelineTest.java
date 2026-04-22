@@ -1,6 +1,7 @@
 import com.example.Feline;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -30,7 +31,6 @@ public class FelineTest {
         Feline feline = new Feline();
         List<String> food = feline.eatMeat();
 
-        assertNotNull(food);
-        assertEquals(3, food.size());
+        assertEquals("Список еды хищника должен содержать мясо, птицу и рыбу", Arrays.asList("Животные", "Птицы", "Рыба"), food);
     }
 }

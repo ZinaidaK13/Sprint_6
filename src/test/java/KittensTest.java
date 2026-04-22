@@ -14,21 +14,19 @@ import static org.junit.Assert.assertEquals;
 public class KittensTest {
 
     private final int inputCount;
-    private final int expectedCount;
 
-    public KittensTest(int inputCount, int expectedCount) {
+    public KittensTest(int inputCount) {
         this.inputCount = inputCount;
-        this.expectedCount = expectedCount;
-    }
+           }
 
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                { 0, 0 },
-                { 1, 1 },
-                { 2, 2 },
-                { 5, 5 },
-                { 10, 10 },
+                { 0 },
+                { 1 },
+                { 2 },
+                { 5 },
+                { 10 },
         }) ;
     }
 
@@ -36,6 +34,6 @@ public class KittensTest {
     public void testGetKittens() {
         Feline feline = new Feline();
         int actual = feline.getKittens(inputCount);
-        assertEquals(expectedCount, actual);
+        assertEquals("Количество котят", inputCount, actual);
     }
 }
