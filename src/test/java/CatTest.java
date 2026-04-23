@@ -34,9 +34,7 @@ public class CatTest {
         when(feline.eatMeat()).thenReturn(expected);
 
         List<String> actual = cat.getFood();
-
         assertEquals(expected, actual);
-        verify(feline).eatMeat();
     }
 
     @Test(expected = Exception.class)

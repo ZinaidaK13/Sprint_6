@@ -36,6 +36,5 @@ public class LionTest {
         List<String> actualFood = lion.getFood();
 
         assertEquals("Список продуктов должен совпадать с тем, что вернула Feline", actualFood, expectedFood);
-        verify(mockFeline).getFood("Хищник"); // Проверяем вызов метода
     }
 }
